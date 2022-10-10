@@ -898,14 +898,14 @@ Firma Paciente o Representante Legal
   <tbody>
     <tr>
     <td><div class="form-group row">
-    <label for="medicamento1" class="col-sm-2 col-form-label">Medicamento:</label>
-    <div class="col-sm-6">
+    <label for="medicamento1" class="col-sm-6 col-form-label">Medicamento:</label>
+    <div class="col-sm-10">
       <input type="text" class="form-control" id="medicamento1" name="medicamento1">
     </div></td>
 <td>
 <div class="form-group row">
-    <label for="dosis1" class="col-sm-2 col-form-label">Dosis:</label>
-    <div class="col-sm-10">
+    <label for="dosis1" class="col-sm-6 col-form-label">Dosis:</label>
+    <div class="col-sm-12">
       <input type="text" class="form-control" id="dosis1" name="dosis1">
     </div>
 </div>
@@ -913,14 +913,14 @@ Firma Paciente o Representante Legal
     </tr>
     <tr>
     <td><div class="form-group row">
-    <label for="medicamento2" class="col-sm-2 col-form-label">Medicamento:</label>
-    <div class="col-sm-6">
+    <label for="medicamento2" class="col-sm-6 col-form-label">Medicamento:</label>
+    <div class="col-sm-10">
       <input type="text" class="form-control" id="medicamento2" name="medicamento2">
     </div></td>
 <td>
 <div class="form-group row">
-    <label for="dosis2" class="col-sm-2 col-form-label">Dosis:</label>
-    <div class="col-sm-10">
+    <label for="dosis2" class="col-sm-6 col-form-label">Dosis:</label>
+    <div class="col-sm-12">
       <input type="text" class="form-control" id="dosis2" name="dosis2">
     </div>
 </div>
@@ -928,14 +928,14 @@ Firma Paciente o Representante Legal
     </tr>
     <tr>
     <td><div class="form-group row">
-    <label for="medicamento3" class="col-sm-2 col-form-label">Medicamento:</label>
-    <div class="col-sm-6">
+    <label for="medicamento3" class="col-sm-6 col-form-label">Medicamento:</label>
+    <div class="col-sm-10">
       <input type="text" class="form-control" id="medicamento3" name="medicamento3">
     </div></td>
 <td>
 <div class="form-group row">
-    <label for="dosis3" class="col-sm-2 col-form-label">Dosis:</label>
-    <div class="col-sm-10">
+    <label for="dosis3" class="col-sm-6 col-form-label">Dosis:</label>
+    <div class="col-sm-12">
       <input type="text" class="form-control" id="dosis3" name="dosis3">
     </div>
 </div>
@@ -943,14 +943,14 @@ Firma Paciente o Representante Legal
     </tr>
     <tr>
     <td><div class="form-group row">
-    <label for="medicamento4" class="col-sm-2 col-form-label">Medicamento:</label>
-    <div class="col-sm-6">
+    <label for="medicamento4" class="col-sm-6 col-form-label">Medicamento:</label>
+    <div class="col-sm-10">
       <input type="text" class="form-control" id="medicamento4" name="medicamento4">
     </div></td>
 <td>
 <div class="form-group row">
-    <label for="dosis4" class="col-sm-2 col-form-label">Dosis:</label>
-    <div class="col-sm-10">
+    <label for="dosis4" class="col-sm-6 col-form-label">Dosis:</label>
+    <div class="col-sm-12">
       <input type="text" class="form-control" id="dosis4" name="dosis4">
     </div>
 </div>
@@ -958,14 +958,14 @@ Firma Paciente o Representante Legal
     </tr>
     <tr>
     <td><div class="form-group row">
-    <label for="medicamento5" class="col-sm-2 col-form-label">Medicamento:</label>
-    <div class="col-sm-6">
+    <label for="medicamento5" class="col-sm-6 col-form-label">Medicamento:</label>
+    <div class="col-sm-10">
       <input type="text" class="form-control" id="medicamento5" name="medicamento5">
     </div></td>
 <td>
 <div class="form-group row">
-    <label for="dosis5" class="col-sm-2 col-form-label">Dosis:</label>
-    <div class="col-sm-10">
+    <label for="dosis5" class="col-sm-6 col-form-label">Dosis:</label>
+    <div class="col-sm-12">
       <input type="text" class="form-control" id="dosis5" name="dosis5">
     </div>
 </div>
