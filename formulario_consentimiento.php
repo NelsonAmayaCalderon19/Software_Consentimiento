@@ -465,7 +465,7 @@ Firma Paciente o Representante Legal
               <h6 class="m-0 font-weight-bold text-primary"><i class="fa fa-pencil-square-o"></i> Diligenciar Encuesta</h6>
             </div>
             <div class="col-sm-12 card-body">
-            <form id="formulario" method="POST" action="Controlador/Crear_Consentimiento.php?id_cita=<?php echo $id_cita?>&cod_consentimiento=<?php echo $id_consentimiento?>&cod_examen=<?php echo $cod_examen?>"> 
+            <form id="formulario" method="POST" action="Controlador/Crear_Consentimiento_Encuesta.php?id_cita=<?php echo $id_cita?>&cod_consentimiento=<?php echo $id_consentimiento?>&cod_examen=<?php echo $cod_examen?>"> 
             <label for="validationCustomNombre">Nombre del Paciente <span style="color:red;">(*)</span></label>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
@@ -904,9 +904,9 @@ Firma Paciente o Representante Legal
     </div></td>
 <td>
 <div class="form-group row">
-    <label for="dosis1" class="col-sm-6 col-form-label">Dosis:</label>
-    <div class="col-sm-12">
-      <input type="text" class="form-control" id="dosis1" name="dosis1">
+    <label for="medicamento_1" class="col-sm-6 col-form-label">Dosis:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="medicamento_1" name="medicamento_1">
     </div>
 </div>
 </td>
@@ -919,9 +919,9 @@ Firma Paciente o Representante Legal
     </div></td>
 <td>
 <div class="form-group row">
-    <label for="dosis2" class="col-sm-6 col-form-label">Dosis:</label>
-    <div class="col-sm-12">
-      <input type="text" class="form-control" id="dosis2" name="dosis2">
+    <label for="medicamento_2" class="col-sm-6 col-form-label">Dosis:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="medicamento_2" name="medicamento_2">
     </div>
 </div>
 </td>
@@ -934,9 +934,9 @@ Firma Paciente o Representante Legal
     </div></td>
 <td>
 <div class="form-group row">
-    <label for="dosis3" class="col-sm-6 col-form-label">Dosis:</label>
-    <div class="col-sm-12">
-      <input type="text" class="form-control" id="dosis3" name="dosis3">
+    <label for="medicamento_3" class="col-sm-6 col-form-label">Dosis:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="medicamento_3" name="medicamento_3">
     </div>
 </div>
 </td>
@@ -949,9 +949,9 @@ Firma Paciente o Representante Legal
     </div></td>
 <td>
 <div class="form-group row">
-    <label for="dosis4" class="col-sm-6 col-form-label">Dosis:</label>
-    <div class="col-sm-12">
-      <input type="text" class="form-control" id="dosis4" name="dosis4">
+    <label for="medicamento_4" class="col-sm-6 col-form-label">Dosis:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="medicamento_4" name="medicamento_4">
     </div>
 </div>
 </td>
@@ -964,9 +964,9 @@ Firma Paciente o Representante Legal
     </div></td>
 <td>
 <div class="form-group row">
-    <label for="dosis5" class="col-sm-6 col-form-label">Dosis:</label>
-    <div class="col-sm-12">
-      <input type="text" class="form-control" id="dosis5" name="dosis5">
+    <label for="medicamento_5" class="col-sm-6 col-form-label">Dosis:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="medicamento_5" name="medicamento_5">
     </div>
 </div>
 </td>
@@ -1085,10 +1085,6 @@ function mostrar3(dato3) {
       $("#formulario input[name='flex_fatiga']:radio").is(':checked') && $("#formulario input[name='flex_hospitalizacion']:radio").is(':checked') &&
       $("#formulario input[name='flex_procedimiento']:radio").is(':checked')) {  
 				$("#formulario").submit();  
-        /*if($("#formulario input[name='flex_alergia']:radio").is(':checked')){
-          if($("#formulario input[name='flex_cardiaca']:radio").is(':checked')){
-            $("#formulario").submit();
-          }*/
         }
          else{  
 					alert("Verifique que todas las preguntas hayan sido respondidas, Gracias"); 
