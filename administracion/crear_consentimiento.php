@@ -74,28 +74,28 @@ $consul_examen = "SELECT * FROM examen";
   <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon3"><i class="fa fa-user"></i></span>
   </div>
-    <textarea class="form-control"  name="descripcion" id="validationCustomNombre" aria-describedby="basic-addon3"></textarea>
+    <textarea class="form-control"  name="descripcion" id="validationCustomNombre" style="height: 7em;" aria-describedby="basic-addon3"></textarea>
 </div>
 <label for="validationCustomNombre">Objetivo</label>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon3"><i class="fa fa-user"></i></span>
   </div>
-    <textarea class="form-control"  name="objetivo" id="validationCustomNombre" aria-describedby="basic-addon3"></textarea>
+    <textarea class="form-control"  name="objetivo" id="validationCustomNombre" style="height: 7em;" style="height: 10em;" aria-describedby="basic-addon3"></textarea>
 </div>
 <label for="validationCustomNombre">Beneficios</label>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon3"><i class="fa fa-user"></i></span>
   </div>
-    <textarea class="form-control"  name="beneficios" id="validationCustomNombre" aria-describedby="basic-addon3"></textarea>
+    <textarea class="form-control"  name="beneficios" id="validationCustomNombre" style="height: 7em;" aria-describedby="basic-addon3"></textarea>
 </div>
 <label for="validationCustomNombre">Riesgos</label>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon3"><i class="fa fa-user"></i></span>
   </div>
-    <textarea class="form-control"  name="riesgos" id="validationCustomNombre" aria-describedby="basic-addon3"></textarea>
+    <textarea class="form-control"  name="riesgos" id="validationCustomNombre" style="height: 10em;" aria-describedby="basic-addon3"></textarea>
 </div>
 <label for="validationCustomSelect">Existen otras Alternativas <span style="color:red;">(*)</span></label>
 
@@ -114,21 +114,21 @@ $consul_examen = "SELECT * FROM examen";
   <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon3"><i class="fa fa-user"></i></span>
   </div>
-    <textarea class="form-control"  name="alternativas" id="validationCustomNombre" aria-describedby="basic-addon3"></textarea>
+    <textarea class="form-control"  name="alternativas" style="height: 10em;" id="validationCustomNombre" aria-describedby="basic-addon3"></textarea>
 </div>
 <label for="validationCustomNombre">Decisión</label>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon3"><i class="fa fa-user"></i></span>
   </div>
-    <textarea class="form-control"  name="decision" id="validationCustomNombre" aria-describedby="basic-addon3"></textarea>
+    <textarea class="form-control" style="height: 10em;"  name="decision" id="validationCustomNombre" aria-describedby="basic-addon3"></textarea>
 </div>
 <label for="validationCustomNombre">Revocatoria</label>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon3"><i class="fa fa-user"></i></span>
   </div>
-    <textarea class="form-control"  name="revocatoria" id="validationCustomNombre" aria-describedby="basic-addon3"></textarea>
+    <textarea class="form-control"  name="revocatoria" id="validationCustomNombre" style="height: 10em;" aria-describedby="basic-addon3"></textarea>
 </div>
 <label for="validationCustomSelect">Profesional que Firma <span style="color:red;">(*)</span></label>
 

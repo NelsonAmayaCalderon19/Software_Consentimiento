@@ -51,15 +51,13 @@ $templateWord->setValue('beneficios',$beneficios);
 $templateWord->setValue('riesgos',$riesgos);
 $templateWord->setValue('alternativas',$alternativas);
 $templateWord->setValue('decisión',$decision);
+$templateWord->setValue('inquietud',"");
+$templateWord->setValue('respuesta',"");
 $templateWord->setValue('revocatoria',$revocatoria);
 $templateWord->setValue('profesional',$miSelectFirmante);
 $templateWord->saveAs('../../formatos/'. $ruta_archivo);
 $consentimiento -> Guardar_Consentimiento_Detalle($codigo,$nombre,$descripcion,$objetivo,$beneficios,$riesgos,$miSelectalternativas,$alternativas,$decision,$revocatoria,$miSelectFirmante);
-$archivo_nombre="consentimiento.docx";
-$archivo_tipo = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+header("location:../panel_admin.php");
 
-//$archivo_binario = (file_get_contents('DocumentoEditado.docx'));
-
-
- 
+}
 ?>

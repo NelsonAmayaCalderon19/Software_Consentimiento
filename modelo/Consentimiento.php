@@ -42,20 +42,6 @@ endforeach;
     return $nombre;
     }
 
-    public function Consultar_Archivo_Consentimiento2($codigo){
-        $sq="SELECT * FROM consentimiento as cons WHERE cons.codigo= ':codigo'";
-$result=$this->conexion->prepare($sq);
-$result->execute(array(
-    ':codigo' =>"".$codigo.""
-  ));
-$results = $result -> fetchAll();
-
-foreach($results as $fila):
-        $nombre = $fila["ruta_archivo"];
-endforeach;
-    return $nombre;
-    }
-
     public function Consultar_Formulario_Consentimiento($codigo){
         $sq="SELECT * FROM consentimiento as cons WHERE cons.codigo= :codigo";
 $result=$this->conexion->prepare($sq);
