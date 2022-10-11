@@ -50,13 +50,14 @@ $consul_examen = "SELECT * FROM examen";
   </div>
     <input type="text" class="form-control" value="" name="codigo_consentimiento" id="validationCustomNombre" aria-describedby="basic-addon3">
 </div>
+
 <label for="validationCustomSelect">Examen Relacionado <span style="color:red;">(*)</span></label>
 
      <div class="input-group mb-3">
   <div class="input-group-prepend">
       <label class="input-group-text" for="inputGroupSelect01"><i class="fa fa-address-card"></i></label>
   </div>
-         <select class="custom-select" id="validationCustomSelect" name="selectexamen" aria-describedby="inputGroupPrepend" required>
+   <select class="custom-select" id="validationCustomSelect" name="selectexamen[]" aria-describedby="inputGroupPrepend" multiple required>
          <?php foreach ($conexion->query($consul_examen) as $row) { ?>
                         <option value="<?php echo $row['codigo']; ?>"><?php echo $row['descripcion'];?></option>
                         <?php } ?>   

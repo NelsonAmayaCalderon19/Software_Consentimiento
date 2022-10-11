@@ -67,7 +67,7 @@ $consulta = "SELECT * FROM consentimiento_detalle where cod_consentimiento = '$i
               <h6 class="m-0 font-weight-bold text-primary"><i class="fa fa-pencil-square-o"></i> Ingresar Información</h6>
             </div>
             <div class="col-sm-12 card-body">
-            <form method="POST" action="Controlador/Crear_Consentimiento.php?id_cita=<?php echo $id_cita?>&cod_consentimiento=<?php echo $id_consentimiento?>&cod_examen=<?php echo $cod_examen?>"> 
+            <form method="POST" action="Controlador/Crear_Consentimiento.php?id_cita=<?php echo $id_cita?>&cod_consentimiento=<?php echo $id_consentimiento?>&cod_examen=<?php echo $cod_examen?>" ENCTYPE='multipart/form-data'> 
             <label for="validationCustomNombre">Nombre del Paciente <span style="color:red;">(*)</span></label>
 <div class="input-group mb-3">
   <div class="input-group-prepend">
@@ -302,7 +302,7 @@ $cargo = $datoscargo[0];?>
 <tbody>
   <tr>
   <td colspan="4">
-  <div class="input-group mb-3">
+  <div class="input-group mb-3" >
 <div class="form-check col-md-2">
   <input class="form-check-input" type="radio" value="Sí" name="flexRadioDefault" id="flexRadioDefault1" onchange="mostrar(this.value);">
   <label class="form-check-label" for="flexRadioDefault">
@@ -311,7 +311,7 @@ $cargo = $datoscargo[0];?>
 </div>
 <div class="form-check ">
   <input class="form-check-input" type="radio" value="No" name="flexRadioDefault" id="flexRadioDefault2" onchange="mostrar(this.value);">
-  <label class="form-check-label" for="flexRadioDefault">
+  <label class="form-check-label" for="flexRadioDefault">                
     No
   </label>
 </div>
@@ -353,9 +353,6 @@ $cargo = $datoscargo[0];?>
 </thead>
 <tbody>
   <tr>
-    <td>
-      <h1>Campo para Firmar</h1>
-</td>
 </tr>
 </tbody>
 </table>
@@ -406,9 +403,6 @@ $cargo = $datoscargo[0];?>
 Firma Representante
 </th>
 </tr>
-<td>
-<h1>Campo para Firmar</h1>
-</td>
 </tr>
 </tbody>
 </table>
@@ -431,26 +425,42 @@ Firma Paciente o Representante Legal
 </th>
 </tr>
 <tr>
-  <td>
-  <h1>Campo para Firmar</h1>
-</td>
 </tr>
 </tbody>
 </table>
-</div>
-  <div class="col-12 text-center justify-content-center row">
 
-<input class="btn btn-success btn-acepta" type="submit" name="btnAcepta" value="Aceptar" /> 
+</div>
+<!--<div class="col-12 text-center justify-content-center row">
+
+<input class="btn btn-success btn-acepta" type="button" name="btnAcepta" onclick='GuardarTrazado()' value="Aceptar" /> 
     
-                          </div>
+                          </div>-->
                          
                           
 </div>
-  </form>
+
+<div id="canva" style="visibility: hidden;">
+<canvas id='canvas' width="600" height="200" style='border: 1px solid #CCC;'>
+    <p>Tu navegador no soporta canvas</p>
+</canvas>
+<firma id="firma"></firma>
+<signature></signature>
+
+<!-- creamos el form para el envio -->
+<!--<form id='formCanvas' method='post' action='Controlador/control_imagen.php' ENCTYPE='multipart/form-data'>
+  --> <button type='button' onclick='LimpiarTrazado()'>Borrar</button>
+    <!--<button type="button" onclick='GuardarTrazado()'>Guardar</button>-->
+    <input class="btn btn-success btn-acepta" type="submit" name="btnAcepta" onclick='GuardarTrazado()' value="Aceptar" /> 
+
+    <input type='hidden' name='imagen' id='imagen' />
+
+  </div>
+  
             </div>
 </div>      
 </div>
 </div>
+</form>
  <?php } }else{?> 
   <div class="container-fluid col-11 mx-auto" style="margin-top: 60px;">
           <div class="row">
@@ -980,10 +990,12 @@ Firma Paciente o Representante Legal
                           </div>
  </form>
             </div>
-</div>      
+</div>
+      
 </div>
 </div>
             <?php }?>
+   
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>   
@@ -1004,7 +1016,7 @@ $(document).ready(function() {
     document.getElementById("firma_paciente").style.display = "none";
     document.getElementById("firma_representante").style.display = "none";
     document.getElementById("persona_firmante").style.display = "none";
-    document.getElementById("encabezado_persona_firmante").style.display = "none";
+    document.getElementById("canva").style.visibility = "visible";
     //resetRadioButtons("flexRadioFirma");
   }
   if (dato == "Sí") {
@@ -1013,6 +1025,7 @@ $(document).ready(function() {
     document.getElementById("revocatoria").style.display = "none";
     document.getElementById("firma_paciente").style.display = "none";
     document.getElementById("firma_representante").style.display = "none";
+    document.getElementById("canva").style.visibility = "hidden";
     resetRadioButtons("flexRadioFirma");
   }
 
@@ -1023,12 +1036,14 @@ function mostrar2(dato2) {
     document.getElementById("revocatoria").style.display = "none";
     document.getElementById("firma_paciente").style.display = "block";
     document.getElementById("firma_representante").style.display = "none";
+    document.getElementById("canva").style.visibility = "visible";
   }
   if (dato2 == "Representante_Legal") {
     document.getElementById("persona_firmante").style.visibility = "visible";
     document.getElementById("revocatoria").style.display = "none";
     document.getElementById("firma_paciente").style.display = "none";
     document.getElementById("firma_representante").style.display = "block";
+    document.getElementById("canva").style.visibility = "visible";
   }
 }
 
@@ -1109,5 +1124,121 @@ function resetRadioButtons(groupName) {
     <?php /*echo $id_cita;
           echo $id_consentimiento;*/?>
     <?php include "includes/footer.php";?> 
+    <script type="text/javascript">
+    /* Variables de Configuracion */
+    var idCanvas='canvas';
+    var idForm='formCanvas';
+    var inputImagen='imagen';
+    var estiloDelCursor='crosshair';
+    var colorDelTrazo='#555';
+    var colorDeFondo='#fff';
+    var grosorDelTrazo=2;
+
+    /* Variables necesarias */
+    var contexto=null;
+    var valX=0;
+    var valY=0;
+    var flag=false;
+    var imagen=document.getElementById(inputImagen); 
+    var anchoCanvas=document.getElementById(idCanvas).offsetWidth;
+    var altoCanvas=document.getElementById(idCanvas).offsetHeight;
+    var pizarraCanvas=document.getElementById(idCanvas);
+
+    /* Esperamos el evento load */
+    window.addEventListener('load',IniciarDibujo,false);
+
+    function IniciarDibujo(){
+      /* Creamos la pizarra */
+      pizarraCanvas.style.cursor=estiloDelCursor;
+      contexto=pizarraCanvas.getContext('2d');
+      contexto.fillStyle=colorDeFondo;
+      contexto.fillRect(0,0,anchoCanvas,altoCanvas);
+      contexto.strokeStyle=colorDelTrazo;
+      contexto.lineWidth=grosorDelTrazo;
+      contexto.lineJoin='round';
+      contexto.lineCap='round';
+      /* Capturamos los diferentes eventos */
+      pizarraCanvas.addEventListener('mousedown',MouseDown,false);// Click pc
+      pizarraCanvas.addEventListener('mouseup',MouseUp,false);// fin click pc
+      pizarraCanvas.addEventListener('mousemove',MouseMove,false);// arrastrar pc
+
+      pizarraCanvas.addEventListener('touchstart',TouchStart,false);// tocar pantalla tactil
+      pizarraCanvas.addEventListener('touchmove',TouchMove,false);// arrastras pantalla tactil
+      pizarraCanvas.addEventListener('touchend',TouchEnd,false);// fin tocar pantalla dentro de la pizarra
+      pizarraCanvas.addEventListener('touchleave',TouchEnd,false);// fin tocar pantalla fuera de la pizarra
+    }
+
+    function MouseDown(e){
+      flag=true;
+      contexto.beginPath();
+      valX=e.pageX-posicionX(pizarraCanvas); valY=e.pageY-posicionY(pizarraCanvas);
+      contexto.moveTo(valX,valY);
+    }
+
+    function MouseUp(e){
+      contexto.closePath();
+      flag=false;
+    }
+
+    function MouseMove(e){
+      if(flag){
+        contexto.beginPath();
+        contexto.moveTo(valX,valY);
+        valX=e.pageX-posicionX(pizarraCanvas); valY=e.pageY-posicionY(pizarraCanvas);
+        contexto.lineTo(valX,valY);
+        contexto.closePath();
+        contexto.stroke();
+      }
+    }
+
+    function TouchMove(e){
+      e.preventDefault();
+      if (e.targetTouches.length == 1) { 
+        var touch = e.targetTouches[0]; 
+        MouseMove(touch);
+      }
+    }
+
+    function TouchStart(e){
+      if (e.targetTouches.length == 1) { 
+        var touch = e.targetTouches[0]; 
+        MouseDown(touch);
+      }
+    }
+
+    function TouchEnd(e){
+      if (e.targetTouches.length == 1) { 
+        var touch = e.targetTouches[0]; 
+        MouseUp(touch);
+      }
+    }
+
+    function posicionY(obj) {
+      var valor = obj.offsetTop;
+      if (obj.offsetParent) valor += posicionY(obj.offsetParent);
+      return valor;
+    }
+
+    function posicionX(obj) {
+      var valor = obj.offsetLeft;
+      if (obj.offsetParent) valor += posicionX(obj.offsetParent);
+      return valor;
+    }
+
+    /* Limpiar pizarra */
+    function LimpiarTrazado(){
+      contexto=document.getElementById(idCanvas).getContext('2d');
+      contexto.fillStyle=colorDeFondo;
+      contexto.fillRect(0,0,anchoCanvas,altoCanvas);
+    }
+
+    /* Enviar el trazado */
+    function GuardarTrazado(){
+      imagen.value=document.getElementById(idCanvas).toDataURL('image/png');
+      document.forms[idForm].submit();
+    }
+</script>
+
+
 </body>
 </html>
